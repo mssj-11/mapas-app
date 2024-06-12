@@ -1,4 +1,6 @@
+import { useReducer } from "react";
 import { PlacesContext } from "./PlacesContext";
+import { PlacesReducer } from "./PlacesReducer";
 
 /*rafc*/
 export interface PlacesState {
@@ -11,15 +13,18 @@ const INITIAL_STATE: PlacesState = {
     userLocation: undefined
 }
 
-export interface Props {
+interface Props {
     children: JSX.Element | JSX.Element[]
 }
 
 export const PlacesProvider = ({ children }: Props) => {
+
+    const [state, dispatch] = useReducer(PlacesReducer, INITIAL_STATE);
+
+
   return (
     <PlacesContext.Provider value={{
-        isLoading: true,
-        userLocation: undefined
+        ...state,
     }}>
         { children }
     </PlacesContext.Provider>
