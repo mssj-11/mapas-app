@@ -1,6 +1,8 @@
 #	Mapas con React + Typescript
 
 `npx create-react-app mapas-app --template=typescript`
+`npm install --save mapbox-gl`
+`npm i --save-dev @types/mapbox-gl`
 
 
 # Getting Started with Create React App
